@@ -1,0 +1,32 @@
+{
+  "name": "devshub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "firebase": "^8.0.0",
+    "firebase-admin": "^9.3.0",
+    "formik": "^2.2.1",
+    "js-cookie": "^2.2.1",
+    "next": "^10.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-query": "^2.25.2",
+    "react-query-devtools": "^2.6.3",
+    "styled-components": "^5.2.0",
+    "use-dark-mode": "^2.3.1",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "babel-plugin-inline-react-svg": "^1.1.1",
+    "babel-plugin-styled-components": "^1.11.1"
+  }
+}

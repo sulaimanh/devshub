@@ -1,0 +1,68 @@
+@import "../../../sass/abstracts/mixins";
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  cursor: pointer;
+  margin: 1rem;
+  //   width: 25%;
+  width: fit-content;
+  min-width: 20rem;
+  max-width: 40rem;
+  // height: fit-content;
+  padding-right: 1rem;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  padding: 1rem 1.5rem;
+
+  &:hover {
+    background-color: rgba(grey, 0.2);
+  }
+
+  @include respond(tab-port) {
+    max-width: 100%;
+  }
+
+  &--heading {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    // padding: 1.5rem 0rem 1.5rem 1rem;
+
+    &__title {
+      display: flex;
+      flex-wrap: wrap;
+      width: fit-content;
+    }
+
+    &__delete {
+      display: flex;
+      width: fit-content;
+      padding: 1rem 0rem 0rem 0rem;
+      z-index: 9000;
+      border-radius: 5px;
+      width: fit-content;
+      &--trash {
+        &:hover {
+          color: var(--color-delete);
+        }
+      }
+    }
+  }
+
+  &--description {
+    margin-top: 1rem;
+
+    &__seemore {
+      cursor: pointer;
+      color: var(--color-primary);
+      text-decoration: underline;
+      &:hover {
+        color: var(--color-tertiary);
+      }
+    }
+  }
+}
