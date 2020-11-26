@@ -36,7 +36,7 @@ export default function Index({ section, ...props }) {
     router.query.page,
     user?.id
   );
-  console.log(router.query.postId);
+
   const [sendJoinRequest, sendJoinRequestInfo] = useSendRequestToJoin(
     router.query.section,
     router.query.postId

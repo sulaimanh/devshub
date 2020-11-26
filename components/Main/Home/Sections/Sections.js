@@ -31,7 +31,7 @@ export default function Sections({ page, data, section, ...props }) {
             key={index}
             handler={handler}
             title={doc.title}
-            id={doc.id}
+            id={doc.postId}
             description={doc.description}
             tech={doc.techArr}
           />

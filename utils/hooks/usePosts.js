@@ -22,7 +22,7 @@ export const getPosts = async (_, section, page, lastVisible, isBackwards) => {
       const docs = documentSnapshots.docs
         .filter((_, index) => index !== amountPerPage)
         .map((doc) => {
-          return { ...doc.data(), id: doc.id };
+          return { ...doc.data(), postId: doc.id };
         });
 
       const data = {
@@ -64,7 +64,7 @@ export const getPosts = async (_, section, page, lastVisible, isBackwards) => {
       const docs = documentSnapshots.docs
         .filter((_, index) => index !== amountPerPage)
         .map((doc) => {
-          return { ...doc.data(), id: doc.id };
+          return { ...doc.data(), postId: doc.id };
         });
 
       const data = {

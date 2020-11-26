@@ -10,7 +10,7 @@ export const getPost = async (_, section, postId) => {
 
 export default function usePost(section, postId, page, userId) {
   const cache = useQueryCache();
-  console.log(postId);
+
   return useQuery(["posts", section, postId], getPost, {
     initialData: () => {
       return cache
