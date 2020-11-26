@@ -17,6 +17,7 @@ import styled from "styled-components";
 import { useEffect } from "react";
 
 const Card = ({
+  index,
   page,
   section,
   description,
@@ -40,7 +41,12 @@ const Card = ({
   const desc = isWordy ? (
     <Paragraph size='reg'>
       {description.substring(0, 250)}...{" "}
-      <Span handler={() => handler(id)} clickable color='primary' pad='0rem'>
+      <Span
+        handler={() => handler(id, index)}
+        clickable
+        color='primary'
+        pad='0rem'
+      >
         see more
       </Span>
     </Paragraph>
@@ -51,12 +57,12 @@ const Card = ({
   return (
     <Container>
       <HeadingContainer>
-        <TitleContainer onClick={() => handler(id)}>
+        <TitleContainer onClick={() => handler(id, index)}>
           <HeadingSecondary>{title}</HeadingSecondary>
         </TitleContainer>
 
         <Button
-          handler={() => handler(id)}
+          handler={() => handler(id, index)}
           category='tertiary-outline'
           size='small'
           label='Explore'

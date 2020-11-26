@@ -82,10 +82,7 @@ export const getPosts = async (_, section, page, lastVisible, isBackwards) => {
 };
 
 export default function usePosts(section, lastVisible, page, isBackwards) {
-  return usePaginatedQuery(
-    ["posts", section, page],
-    React.useCallback((posts, section, page) =>
-      getPosts(posts, section, page, lastVisible, isBackwards)
-    )
+  return usePaginatedQuery(["posts", section, page], (posts, section, page) =>
+    getPosts(posts, section, page, lastVisible, isBackwards)
   );
 }

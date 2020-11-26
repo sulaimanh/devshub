@@ -11,7 +11,7 @@ export default function Sections({ page, data, section, ...props }) {
     router.prefetch("/home/[section]/[postId]");
   }, []);
 
-  const handler = (id) => {
+  const handler = (id, index) => {
     router.push(
       {
         pathname: `/home/${section}/${id}`,
@@ -25,6 +25,7 @@ export default function Sections({ page, data, section, ...props }) {
       {data.map((doc, index) => {
         return (
           <Card
+            index={index}
             page={page}
             section={section}
             key={index}
