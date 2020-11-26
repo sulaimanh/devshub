@@ -8,13 +8,14 @@ export const getPost = async (_, section, postId) => {
   return JSON.parse(JSON.stringify(doc.data()));
 };
 
-export default function usePost(section, postId, page) {
+export default function usePost(section, postId, page, userId) {
   const cache = useQueryCache();
+  console.log(postId);
   return useQuery(["posts", section, postId], getPost, {
     initialData: () => {
       return cache
         .getQueryData(["posts", section, parseInt(page)])
-        ?.docs.find((post) => post.id === postId);
+        ?.docs.find((post) => post.id === userId);
     }
   });
 }

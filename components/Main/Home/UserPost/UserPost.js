@@ -75,7 +75,7 @@ const UserPost = React.memo(
               size='3x'
             />
             <RequestContainer>
-              {post.users.some((user) => user.id === user.id) ? (
+              {post.users.some((curr) => curr.id === user?.id) ? (
                 <Icon
                   onClick={leavePostHandler}
                   className='check'

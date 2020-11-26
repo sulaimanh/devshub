@@ -33,9 +33,10 @@ export default function Index({ section, ...props }) {
   const { status, isLoading, isError, data, error } = usePost(
     router.query.section,
     router.query.postId,
-    router.query.page
+    router.query.page,
+    user?.id
   );
-
+  console.log(router.query.postId);
   const [sendJoinRequest, sendJoinRequestInfo] = useSendRequestToJoin(
     router.query.section,
     router.query.postId
