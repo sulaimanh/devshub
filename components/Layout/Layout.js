@@ -27,7 +27,7 @@ export default function Layout({ children, ...props }) {
     if (user && router.pathname === "/") {
       router.push(`/home?page=1`, `/home/`);
     }
-  }, [user]);
+  }, [user, loading]);
 
   if (loading) {
     return (
@@ -36,6 +36,13 @@ export default function Layout({ children, ...props }) {
       </LoadingContainer>
     );
   }
+
+  const menu = user ? (
+    <Menu>
+      <DesktopMenu />
+      <MobileMenu />
+    </Menu>
+  ) : null;
 
   return (
     <>
@@ -65,12 +72,7 @@ export default function Layout({ children, ...props }) {
 
       {header}
       <Container>
-        {user ? (
-          <Menu>
-            <DesktopMenu />
-            <MobileMenu />
-          </Menu>
-        ) : null}
+        {menu}
         <MainContent user={user}>{children}</MainContent>
       </Container>
       <Footer />

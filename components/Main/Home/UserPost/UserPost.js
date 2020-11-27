@@ -82,7 +82,7 @@ const UserPost = React.memo(
                   icon={faCheckCircle}
                   size='3x'
                 />
-              ) : user.id === post.id ? (
+              ) : user?.id === post.id ? (
                 <Button
                   handler={editPostHandler}
                   category='primary'
