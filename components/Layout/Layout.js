@@ -75,7 +75,7 @@ export default function Layout({ children, ...props }) {
         >
           DevsHub&nbsp;
         </High>{" "}
-        is still in&nbsp;
+        is still&nbsp;
         <High
           onClick={() => window.open("https://github.com/devs-hub/devshub")}
         >
