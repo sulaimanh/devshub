@@ -1,4 +1,4 @@
-This is not a complete version of DevsHub. This will be replacing this [repository](https://github.com/devs-hub/devshub-previous)
+Replacing this [repository](https://github.com/devs-hub/devshub-previous)
 
 Migrating to Next.js, Styled Components and adding new features.
 
