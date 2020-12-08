@@ -75,12 +75,7 @@ export default function Layout({ children, ...props }) {
         >
           DevsHub&nbsp;
         </High>{" "}
-        is still&nbsp;
-        <High
-          onClick={() => window.open("https://github.com/devs-hub/devshub")}
-        >
-          under construction
-        </High>
+        is still under construction
       </DevBanner>
       {header}
       <Container>
