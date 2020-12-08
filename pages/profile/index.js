@@ -1,5 +1,6 @@
+import Profile from "@/components/Main/Profile/Profile";
 import React from "react";
 
-export default function Profile() {
-  return <div>PROFILE</div>;
+export default function Index() {
+  return <Profile />;
 }

@@ -69,7 +69,19 @@ export default function Layout({ children, ...props }) {
           rel='stylesheet'
         />
       </Head>
-
+      <DevBanner>
+        <High
+          onClick={() => window.open("https://github.com/devs-hub/devshub")}
+        >
+          DevsHub&nbsp;
+        </High>{" "}
+        is still in&nbsp;
+        <High
+          onClick={() => window.open("https://github.com/devs-hub/devshub")}
+        >
+          under construction
+        </High>
+      </DevBanner>
       {header}
       <Container>
         {menu}
@@ -115,5 +127,27 @@ const Menu = styled.div`
   @media ${device.tabPort} {
     height: 0;
     width: 0;
+  }
+`;
+
+const DevBanner = styled.div`
+  position: fixed;
+  font-size: var(--default-font-size-small);
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  background-color: ${({ theme }) =>
+    theme.isDark ? theme.backgrounds.primary : theme.backgrounds.secondary};
+  z-index: 100000000000;
+`;
+
+const High = styled.span`
+  color: ${({ theme }) => theme.fonts.primary};
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.fonts.tertiary};
   }
 `;

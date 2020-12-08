@@ -31,9 +31,9 @@ export default function Index({ section, ...props }) {
   const router = useRouter();
   const { user } = useAuth();
   const { status, isLoading, isError, data, error } = usePost(
-    router.query.section,
-    router.query.postId,
-    router.query.page,
+    router.query?.section,
+    router.query?.postId,
+    router.query?.page,
     user?.id
   );
 
@@ -45,12 +45,11 @@ export default function Index({ section, ...props }) {
     router.query.section,
     router.query.postId
   );
-
   const goBackHandler = () => {
-    router.back();
+    router.push("/home");
   };
 
-  if (status === "loading" || isLoading) {
+  if (status === "loading" || isLoading || data === null) {
     return <Spinner />;
   }
 

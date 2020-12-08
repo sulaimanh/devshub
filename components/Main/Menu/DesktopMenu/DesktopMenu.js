@@ -108,12 +108,12 @@ const LinkContainer = styled.div`
 
   border-radius: 1rem;
 
-  background-color: ${({ theme, ...props }) =>
+  /* background-color: ${({ theme, ...props }) =>
     props.chosen
       ? theme.buttons.grey
       : theme.isDark
       ? theme.backgrounds.primary
-      : theme.backgrounds.secondary};
+      : theme.backgrounds.secondary}; */
 
   &:hover {
     background-color: ${({ theme }) => theme.buttons.grey};
