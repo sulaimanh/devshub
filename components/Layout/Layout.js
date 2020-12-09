@@ -71,7 +71,7 @@ export default function Layout({ children, ...props }) {
       </Head>
       <DevBanner>
         <High
-          onClick={() => window.open("https://github.com/devs-hub/devshub")}
+          onClick={() => window.open("https://github.com/sulaimanh/devshub")}
         >
           DevsHub&nbsp;
         </High>{" "}
