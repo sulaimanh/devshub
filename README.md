@@ -1,4 +1,4 @@
-Replacing this [repository](https://github.com/devs-hub/devshub-previous)
+Replacing this [repository](https://github.com/sulaimanh/devshub-old)
 
 Migrating to Next.js, Styled Components and adding new features.
 
