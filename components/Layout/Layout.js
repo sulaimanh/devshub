@@ -126,7 +126,7 @@ const Menu = styled.div`
 `;
 
 const DevBanner = styled.div`
-  position: fixed;
+  /* position: fixed; */
   font-size: var(--default-font-size-small);
   font-weight: 600;
   width: 100%;

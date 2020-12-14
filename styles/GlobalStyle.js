@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   --secondary-heading-size: 2.7rem;
 
   /* --default-font-size: 1.5rem; */
-
+  --default-font-size-xl: 2.4rem;
   --default-font-size-large: 2rem;
   --default-font-size-reg: 1.9rem;
   --default-font-size-medium: 1.7rem;

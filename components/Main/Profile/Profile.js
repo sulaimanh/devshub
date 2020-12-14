@@ -1,17 +1,24 @@
+import MainView from "@/components/Main/Profile/MainView/MainView";
 import React from "react";
+import RightPanel from "@/components/Main/Profile/RightPanel/RightPanel";
 import styled from "styled-components";
 
 export default function Profile() {
-  return <Container></Container>;
+  return (
+    <Container>
+      <MainView />
+      <RightPanel />
+    </Container>
+  );
 }
 
 const Container = styled.div`
   width: 90%;
   margin: 2rem 0;
-
-  background-color: ${({ theme }) =>
+  display: flex;
+  /* background-color: ${({ theme }) =>
     theme.isDark ? theme.backgrounds.secondary : theme.backgrounds.primary};
   border-radius: 1rem;
-  padding: 0rem 2.5rem 2rem 2.5rem;
-  box-sizing: border-box;
+  padding: 2rem 2.5rem 2rem 2.5rem;
+  box-sizing: border-box; */
 `;

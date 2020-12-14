@@ -60,7 +60,7 @@ export default function DesktopMenu({ ...props }) {
 
 const Container = styled.div`
   position: fixed;
-  left: 1rem;
+  left: 2rem;
   overflow-x: hidden;
   display: flex;
   width: 17%;
