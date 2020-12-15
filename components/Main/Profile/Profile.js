@@ -14,7 +14,7 @@ export default function Profile() {
 
 const Container = styled.div`
   width: 90%;
-  margin: 2rem 0;
+  margin: 4rem 0;
   display: flex;
   /* background-color: ${({ theme }) =>
     theme.isDark ? theme.backgrounds.secondary : theme.backgrounds.primary};

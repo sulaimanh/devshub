@@ -113,7 +113,7 @@ const Menu = styled.div`
   position: relative;
   display: flex;
   height: 100vh;
-  width: 17%;
+  width: 14%;
 
   @media ${device.tabLand} {
     width: 20%;

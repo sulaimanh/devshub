@@ -63,7 +63,7 @@ const Container = styled.div`
   left: 2rem;
   overflow-x: hidden;
   display: flex;
-  width: 17%;
+  width: 14%;
 
   align-items: center;
   flex-direction: column;

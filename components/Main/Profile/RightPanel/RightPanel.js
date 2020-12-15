@@ -2,6 +2,7 @@ import Button from "@/components/UI/Button/Button";
 import Input from "@/components/UI/Inputs/TextInput/TextInput";
 import { paragraph as Paragraph } from "@/components/UI/Text/Text";
 import React from "react";
+import { device } from "@/styles/Devices";
 import styled from "styled-components";
 
 export default function RightPanel() {
@@ -20,11 +21,15 @@ export default function RightPanel() {
 
 const Container = styled.div`
   position: relative;
-  width: 35%;
+  width: 25%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media ${device.tabLand} {
+    width: 35%;
+  }
 `;
 
 const ButtonContainer = styled.div`
