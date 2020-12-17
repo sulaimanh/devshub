@@ -40,6 +40,13 @@ const MobileMenu = (props) => {
               selectTabHandler(event, item.path);
             }}
             chosen={selectedTab === item.path ? 1 : 0}
+            disabled={
+              item.path === "profile"
+                ? true
+                : item.path === "messages"
+                ? true
+                : false
+            }
           >
             <LinkIcon
               chosen={selectedTab === item.path ? 1 : 0}
@@ -93,6 +100,7 @@ const LinkContainer = styled.div`
   align-content: center;
   padding: 1rem 1.5rem;
   width: 25%;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   /* background-color: ${({ theme, chosen }) =>
     chosen ? theme.backgrounds.grey : null}; */
   /* border-left: 1px solid ${({ theme }) => theme.inputs.inputBorder}; */
@@ -101,7 +109,6 @@ const LinkContainer = styled.div`
   } */
 
   height: 15%;
-  cursor: pointer;
 
   color: ${({ theme, chosen }) => (chosen ? theme.fonts.tertiary : null)};
 

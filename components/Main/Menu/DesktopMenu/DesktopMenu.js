@@ -41,6 +41,13 @@ export default function DesktopMenu({ ...props }) {
                 selectTabHandler(event, item.path);
               }}
               chosen={selectedTab === item.path ? 1 : 0}
+              disabled={
+                item.path === "profile"
+                  ? true
+                  : item.path === "messages"
+                  ? true
+                  : false
+              }
             >
               <LinkIcon
                 chosen={selectedTab === item.path ? 1 : 0}
@@ -102,11 +109,13 @@ const LinkContainer = styled.div`
   display: flex;
 
   align-items: center;
-  cursor: pointer;
+
   padding: 1rem 0 1rem 1rem;
   margin: 0.5rem 1rem 0rem 1rem;
 
   border-radius: 1rem;
+  pointer-events: ${(props) => (props.disabled ? "none" : null)};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 
   /* background-color: ${({ theme, ...props }) =>
     props.chosen

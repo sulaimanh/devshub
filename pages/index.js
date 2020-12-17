@@ -89,6 +89,7 @@ const Container = styled.div`
     justify-content: center;
     padding-top: 5rem;
   }
+
   @media ${device.tabPort} {
     height: 45vh;
     justify-content: flex-start;
@@ -145,7 +146,7 @@ const RightContainer = styled.div`
   animation: ${moveInRight} 1s ease-in-out;
 
   @media ${device.bigDesktop} {
-    width: 20%;
+    width: 25%;
   }
 
   @media ${device.tabPort} {
