@@ -100,11 +100,7 @@ export default function Add({
   const { user } = useAuth();
   const router = useRouter();
 
-  const [savePost, { status, data, error }] = useCreateEditPost(
-    selectedChoice,
-    postId,
-    page ? page : 1
-  );
+  const { mutate } = useCreateEditPost(selectedChoice, postId, page ? page : 1);
 
   const setInputHandler = (event) => {
     const value = event.target.value;
@@ -124,7 +120,7 @@ export default function Add({
   const postProjectHandler = async () => {
     // delete input.tech;
 
-    await savePost({
+    await mutate({
       id: user.id,
       name: user.name,
       email: user.email,

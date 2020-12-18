@@ -11,7 +11,7 @@ import Loading from "@/components/UI/Loading/Ring";
 import Sections from "@/components/Main/Home/Sections/Sections";
 import TopSelection from "@/components/Main/Home/TopSelection/TopSelection";
 import styled from "styled-components";
-import { useQueryCache } from "react-query";
+import { useQueryClient } from "react-query";
 import { useRouter } from "next/router";
 
 const selections = [
@@ -50,7 +50,7 @@ const selections = [
 // }
 
 const Home = ({ ...props }) => {
-  const cache = useQueryCache();
+  const cache = useQueryClient();
   const [selectedChoice, setSelectedChoice] = useState("teams");
   const [section, setSection] = useState("Team");
   const [showAdd, setShowAdd] = useState(false);
@@ -63,19 +63,20 @@ const Home = ({ ...props }) => {
   });
 
   const {
-    status,
-    error,
-    resolvedData,
-    latestData,
-    isFetching,
     isLoading,
-    isStale
+    isError,
+    error,
+    data,
+    isFetching,
+    isPreviousData
   } = usePosts(
     selectedChoice,
     lastVisible.curr,
     lastVisible.page,
     lastVisible.isBackwards
   );
+
+  // console.log(data);
 
   useEffect(() => {
     router.push(`/home?page=${lastVisible.page}`, "/home");
@@ -95,10 +96,7 @@ const Home = ({ ...props }) => {
     cache.setQueryData("lastVisible", lastVisible, {
       staleTime: Infinity
     });
-    if (
-      latestData?.disbaledPage !== lastVisible.page &&
-      !lastVisible.isBackwards
-    ) {
+    if (data?.disbaledPage !== lastVisible.page && !lastVisible.isBackwards) {
       await cache.prefetchQuery(
         ["posts", selectedChoice, lastVisible.page],
         (posts, section, page) =>
@@ -133,7 +131,7 @@ const Home = ({ ...props }) => {
         selections={selections}
       />
 
-      {isFetching || resolvedData?.docs === undefined ? (
+      {isFetching || data?.docs === undefined ? (
         <div style={{ marginTop: "5rem" }}>
           <Loading />
         </div>
@@ -144,7 +142,7 @@ const Home = ({ ...props }) => {
           <Sections
             page={lastVisible.page}
             section={selectedChoice}
-            data={resolvedData.docs}
+            data={data.docs}
           />
           <IconContainer>
             {lastVisible.page === 1 ? null : (
@@ -156,7 +154,7 @@ const Home = ({ ...props }) => {
                   setLastVisible((prevValue) => {
                     return {
                       page: prevValue.page - 1,
-                      curr: resolvedData.firstVisible,
+                      curr: data.firstVisible,
                       isBackwards: true
                     };
                   })
@@ -164,16 +162,16 @@ const Home = ({ ...props }) => {
               />
             )}
 
-            {lastVisible.page === resolvedData.disabledPage ? null : (
+            {lastVisible.page === data.disabledPage ? null : (
               <Icon
                 size='5x'
                 icon={faArrowAltCircleRight}
-                disabled={lastVisible.page === resolvedData.disabledPage}
+                disabled={lastVisible.page === data.disabledPage}
                 onClick={() => {
                   setLastVisible((prevValue) => {
                     return {
                       page: prevValue.page + 1,
-                      curr: resolvedData.lastVisible,
+                      curr: data.lastVisible,
                       isBackwards: false
                     };
                   });

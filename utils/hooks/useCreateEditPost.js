@@ -1,8 +1,8 @@
 import { FieldValue, TimeStamp, db } from "@/utils/auth/firebase";
-import { queryCache, useMutation, useQueryCache } from "react-query";
+import { queryCache, useMutation, useQueryClient } from "react-query";
 
 export default function useCreatePost(section, postId, page = 1) {
-  const cache = useQueryCache();
+  const cache = useQueryClient();
 
   return useMutation(
     (value) => {

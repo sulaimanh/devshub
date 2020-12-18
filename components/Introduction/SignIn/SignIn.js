@@ -40,7 +40,13 @@ const validationSchemaSignIn = Yup.object().shape({
     .required("Password is Required")
 });
 
-const SignIn = ({ isSignUp, forgotPasswordHandler, toggleModalHandler }) => {
+// - Hello
+export default function SignIn({
+  isSignUp,
+  forgotPasswordHandler,
+  toggleModalHandler,
+  ...props
+}) {
   const {
     user,
     signIn,
@@ -55,6 +61,7 @@ const SignIn = ({ isSignUp, forgotPasswordHandler, toggleModalHandler }) => {
     : validationSchemaSignIn;
 
   const router = useRouter();
+
   const {
     values,
     errors,
@@ -74,9 +81,11 @@ const SignIn = ({ isSignUp, forgotPasswordHandler, toggleModalHandler }) => {
     validationSchema: validationSchema,
     onSubmit: () => attemptSignIn(isSignUp ? "emailSignUp" : "emailSignIn")
   });
+
   const resetError = { message: "", isError: false };
   const [error, setError] = useState(resetError);
-  const [saveUser] = useCreateUser();
+
+  const { saveUser } = useCreateUser();
 
   useEffect(() => {
     router.prefetch("/home");
@@ -254,7 +263,7 @@ const SignIn = ({ isSignUp, forgotPasswordHandler, toggleModalHandler }) => {
       </FormContainer>
     </>
   );
-};
+}
 
 const FormContainer = styled.form`
   position: relative;
@@ -315,5 +324,3 @@ const ForgotContainer = styled.div`
   margin-left: 1rem;
   margin-bottom: 1rem;
 `;
-
-export default SignIn;

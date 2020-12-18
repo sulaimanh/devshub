@@ -1,4 +1,4 @@
-import { useQuery, useQueryCache } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 import { db } from "../auth/firebase";
 
@@ -12,13 +12,16 @@ export const getPost = async (_, section, postId) => {
 };
 
 export default function usePost(section, postId, page, userId) {
-  const cache = useQueryCache();
-
-  return useQuery(["posts", section, postId], getPost, {
-    initialData: () => {
-      return cache
-        .getQueryData(["posts", section, parseInt(page)])
-        ?.docs.find((post) => post.id === userId);
+  const cache = useQueryClient();
+  return useQuery(
+    ["posts", section, postId],
+    (posts) => getPost(posts, section, postId),
+    {
+      initialData: () => {
+        return cache
+          .getQueryData(["posts", section, parseInt(page)])
+          ?.docs.find((post) => post.id === userId);
+      }
     }
-  });
+  );
 }

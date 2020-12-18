@@ -1,10 +1,9 @@
 import React from "react";
 import { db } from "@/utils/auth/firebase";
-import { usePaginatedQuery } from "react-query";
+import { useQuery } from "react-query";
 
 export const getPosts = async (_, section, page, lastVisible, isBackwards) => {
   const amountPerPage = 5;
-
   if (!lastVisible) {
     const first = db
       .collection(section)
@@ -82,7 +81,9 @@ export const getPosts = async (_, section, page, lastVisible, isBackwards) => {
 };
 
 export default function usePosts(section, lastVisible, page, isBackwards) {
-  return usePaginatedQuery(["posts", section, page], (posts, section, page) =>
-    getPosts(posts, section, page, lastVisible, isBackwards)
+  return useQuery(
+    ["posts", section, page],
+    (posts) => getPosts(posts, section, page, lastVisible, isBackwards),
+    { keepPreviousData: true }
   );
 }

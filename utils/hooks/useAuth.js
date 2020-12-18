@@ -7,7 +7,6 @@ import {
 } from "@/utils/auth/userCookies";
 
 import { mapUserData } from "@/utils/auth/mapUserData";
-import useCreateUser from "./useCreateUser";
 import { useRouter } from "next/router";
 
 const authContext = createContext();

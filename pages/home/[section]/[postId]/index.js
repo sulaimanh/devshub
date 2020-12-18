@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import usePost, { getPost } from "@/utils/hooks/usePost";
 
 import Head from "next/head";
-import { QueryCache } from "react-query";
+// import { QueryCache } from "react-query";
 import Spinner from "@/components/UI/Loading/Spinner";
 import UserPost from "@/components/Main/Home/UserPost/UserPost";
-import { dehydrate } from "react-query/hydration";
+// import { dehydrate } from "react-query/hydration";
 import styled from "styled-components";
 import { useAuth } from "@/utils/hooks/useAuth";
 import useRemoveRequestToJoin from "@/utils/hooks/useRemoveRequestToJoin";
@@ -37,11 +37,11 @@ export default function Index({ section, ...props }) {
     user?.id
   );
 
-  const [sendJoinRequest, sendJoinRequestInfo] = useSendRequestToJoin(
+  const { sendJoinRequest, sendJoinRequestInfo } = useSendRequestToJoin(
     router.query.section,
     router.query.postId
   );
-  const [removeJoinRequest, removeJoinRequestInfo] = useRemoveRequestToJoin(
+  const { removeJoinRequest, removeJoinRequestInfo } = useRemoveRequestToJoin(
     router.query.section,
     router.query.postId
   );
