@@ -1,5 +1,4 @@
 // import
-import axios from "axios";
 import { db } from "../auth/firebase";
 import { useQuery } from "react-query";
 

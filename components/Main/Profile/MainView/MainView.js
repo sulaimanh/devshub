@@ -17,7 +17,7 @@ export default function MainView() {
     <SectionContainer>
       {sections.map((sect, index) => {
         return (
-          <>
+          <TabContainer key={index}>
             <Paragraph
               hoverColor={selection !== sect ? "tertiary" : null}
               clickable={selection !== sect ? true : false}
@@ -29,7 +29,7 @@ export default function MainView() {
             {index !== sections.length - 1 ? (
               <Paragraph color='darkGrey'>&nbsp;&nbsp;|&nbsp;&nbsp;</Paragraph>
             ) : null}
-          </>
+          </TabContainer>
         );
       })}
     </SectionContainer>
@@ -43,6 +43,10 @@ const Container = styled.div`
   @media ${device.tabLand} {
     width: 65%;
   }
+`;
+
+const TabContainer = styled.div`
+  display: flex;
 `;
 
 const SectionContainer = styled.div`

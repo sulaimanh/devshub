@@ -65,7 +65,7 @@ export default function NewUser() {
 
   const setPasswordPage = (
     <SetPasswordPage>
-      {!passwordRes.completed && user.providerData.length === 1 ? (
+      {!passwordRes.completed && user?.providerData?.length === 1 ? (
         <>
           <div style={{ marginBottom: "1rem", textAlign: "center" }}>
             <Paragraph size='small'>
@@ -100,7 +100,7 @@ export default function NewUser() {
     </SetPasswordPage>
   );
   const x = [
-    user.providerData.length === 1 &&
+    user?.providerData?.length === 1 &&
     user.providerData[0].providerId !== "password" ? (
       setPasswordPage
     ) : (
@@ -111,6 +111,7 @@ export default function NewUser() {
   ];
   const [num, setNum] = useState(0);
   const next = () => {};
+
   return (
     <Container>
       <Heading>Welcome to DevsHub, {user.name}</Heading>

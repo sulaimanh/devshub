@@ -25,6 +25,8 @@ const Card = ({
   id,
   title,
   tech,
+  likes,
+  likeCardHandler,
   ...props
 }) => {
   const [isWordy, setWordy] = useState(false);
@@ -53,6 +55,10 @@ const Card = ({
   ) : (
     <Paragraph size='reg'>{description}</Paragraph>
   );
+  let isLiked = null;
+  if (likes) {
+    isLiked = likes.some((like) => like.id === id).toString();
+  }
 
   return (
     <Container>
@@ -74,7 +80,13 @@ const Card = ({
         {desc}
       </DescriptionContainer>
       <TechContainer>
-        <Technology tech={tech} /> <Icon icon={faHeart} size='3x' />
+        <Technology tech={tech} />{" "}
+        <Icon
+          isliked={isLiked}
+          icon={faHeart}
+          size='3x'
+          onClick={() => likeCardHandler(isLiked, id)}
+        />
       </TechContainer>
     </Container>
   );
@@ -124,11 +136,13 @@ const TechContainer = styled.div`
 `;
 
 const Icon = styled(FontAwesomeIcon)`
-  color: ${({ theme }) => theme.buttons.greyHover};
+  color: ${({ isliked, theme }) =>
+    isliked === "true" ? theme.fonts.red : theme.backgrounds.grey};
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.fonts.red};
+    color: ${({ isliked, theme }) =>
+      isliked === "true" ? theme.backgrounds.grey : theme.fonts.red};
   }
 `;
 

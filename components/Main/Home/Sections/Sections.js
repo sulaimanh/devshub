@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
 
 import Card from "@/components/UI/Card/Card";
-import Link from "next/link";
+import { useAuth } from "@/utils/hooks/useAuth";
+import useCreateUser from "@/utils/hooks/useCreateUser";
+import useGetUser from "@/utils/hooks/useGetUser";
 import { useRouter } from "next/router";
 
 export default function Sections({ page, data, section, ...props }) {
   const router = useRouter();
+  const { user } = useAuth();
+  const userData = useGetUser(user?.id);
+  const updateUser = useCreateUser();
 
   useEffect(() => {
     router.prefetch("/home/[section]/[postId]");
@@ -20,6 +25,20 @@ export default function Sections({ page, data, section, ...props }) {
       `/home/${section}/${id}`
     );
   };
+  // console.log(userData.data);
+
+  const likeCardHandler = (isLiked, id) => {
+    if (isLiked === "true") {
+      const index = userData.data.likes.findIndex((like) => like.id === id);
+      console.log(index);
+      userData.data.likes.splice(index, 1);
+    } else {
+      userData.data.likes.push({ section: section, id: id });
+    }
+
+    updateUser.mutate(userData.data);
+  };
+
   return (
     <>
       {data.map((doc, index) => {
@@ -34,6 +53,8 @@ export default function Sections({ page, data, section, ...props }) {
             id={doc.postId}
             description={doc.description}
             tech={doc.techArr}
+            likeCardHandler={likeCardHandler}
+            likes={userData?.data?.likes}
           />
         );
       })}

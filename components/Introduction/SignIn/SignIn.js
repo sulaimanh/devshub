@@ -85,7 +85,7 @@ export default function SignIn({
   const resetError = { message: "", isError: false };
   const [error, setError] = useState(resetError);
 
-  const { saveUser } = useCreateUser();
+  const saveUser = useCreateUser();
 
   useEffect(() => {
     router.prefetch("/home");
@@ -118,11 +118,13 @@ export default function SignIn({
       setUserCookie(userData);
       if (userData.isNewUser) {
         sendVerifyEmail();
-        saveUser({
+        console.log("Hello");
+        saveUser.mutate({
           id: userData.id,
           name: userData.name,
           email: userData.email,
-          photoURL: userData.photoURL || ""
+          photoURL: userData.photoURL || "",
+          likes: []
         });
       }
       // router.push("/home");

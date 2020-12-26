@@ -11,6 +11,7 @@ import Spinner from "@/components/UI/Loading/Spinner";
 import { device } from "@/styles/Devices";
 import styled from "styled-components";
 import { useAuth } from "@/utils/hooks/useAuth";
+import useGetUser from "@/utils/hooks/useGetUser";
 import { useRouter } from "next/router";
 
 export default function Layout({ children, ...props }) {
