@@ -96,8 +96,10 @@ const Header = styled.header`
   height: 5vh;
   display: flex;
   align-items: center;
-  padding: 4rem 5rem 3rem 5rem;
-  margin-bottom: 0;
+  /* padding: 4rem 5rem 3rem 5rem; */
+  padding: 3rem calc((100% - 1200px) / 2);
+  margin: 0 auto !important;
+  /* margin-bottom: 0; */
   background-color: ${({ theme }) =>
     theme.isDark ? theme.backgrounds.secondary : theme.backgrounds.primary};
 
@@ -105,7 +107,7 @@ const Header = styled.header`
 
   @media ${device.bigDesktop} {
     justify-content: space-around;
-    padding-left: 0rem;
+    /* padding-left: 0rem; */
   }
 
   @media ${device.tabPort} {
@@ -114,7 +116,7 @@ const Header = styled.header`
 
   @media ${device.phone} {
     justify-content: space-between;
-    padding: 2rem 1rem 1rem 1rem;
+    /* padding: 2rem 1rem 1rem 1rem; */
   }
 `;
 

@@ -116,8 +116,8 @@ const LeftContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 40%;
+  max-width: 540px;
   margin-top: 5rem;
-
   /* height: fit-content; */
 
   animation: ${moveInLeft} 1s ease-in-out;
@@ -149,7 +149,7 @@ const RightContainer = styled.div`
 
   height: fit-content;
   width: 40%;
-
+  max-width: 540px;
   animation: ${moveInRight} 1s ease-in-out;
 
   @media ${device.bigDesktop} {

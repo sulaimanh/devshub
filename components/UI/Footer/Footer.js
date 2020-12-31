@@ -48,6 +48,10 @@ const Foot = styled.footer`
   padding: 10rem;
   z-index: 1000;
   justify-content: space-around;
+  margin: 0 auto;
+
+  max-width: 1200px;
+
   background-color: ${({ theme }) =>
     theme.isDark ? theme.backgrounds.primary : theme.backgrounds.secondary};
 
