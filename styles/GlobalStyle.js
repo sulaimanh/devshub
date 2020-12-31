@@ -43,6 +43,10 @@ const GlobalStyle = createGlobalStyle`
 html {
   font-size: 62.5%;
 
+  @media ${device.bigDesktop} {
+    font-size: 75%;
+  }
+
   @media ${device.tabLand} {
     font-size: 58.25%;
   }
@@ -51,9 +55,7 @@ html {
     font-size: 51%;
   }
 
-  @media ${device.bigDesktop} {
-    font-size: 75%;
-  }
+  
 }
 
 body {

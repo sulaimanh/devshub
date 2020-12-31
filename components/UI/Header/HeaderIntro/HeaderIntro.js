@@ -96,7 +96,7 @@ const Header = styled.header`
   height: 5vh;
   display: flex;
   align-items: center;
-  padding: 4rem 3rem 3rem 3rem;
+  padding: 4rem 5rem 3rem 5rem;
   margin-bottom: 0;
   background-color: ${({ theme }) =>
     theme.isDark ? theme.backgrounds.secondary : theme.backgrounds.primary};

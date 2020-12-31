@@ -65,9 +65,15 @@ export default function Introduction(props) {
   );
 }
 
+// const OuterContainer = styled.div`
+//   width: 70%;
+// `;
+
 const Main = styled.main`
   display: flex;
   flex-direction: column;
+
+  /* width: 70%; */
 `;
 
 const Container = styled.div`
@@ -109,14 +115,15 @@ const LeftContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 40%;
   margin-top: 5rem;
+
   /* height: fit-content; */
 
   animation: ${moveInLeft} 1s ease-in-out;
 
   @media ${device.bigDesktop} {
-    width: 40%;
+    width: 25%;
   }
 
   @media ${device.tabPort} {
@@ -141,7 +148,7 @@ const RightContainer = styled.div`
   justify-content: flex-end;
 
   height: fit-content;
-  width: 45%;
+  width: 40%;
 
   animation: ${moveInRight} 1s ease-in-out;
 
